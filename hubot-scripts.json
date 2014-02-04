@@ -1,3 +1,4 @@
 [
-  "ackbar.coffee"
+  "ackbar.coffee",
+  "redis-brain.coffee"
 ]
