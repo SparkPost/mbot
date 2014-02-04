@@ -1,6 +1,6 @@
 {
   "name": "hosted-hubot",
-  "version": "2.6.3",
+  "version": "2.7.1",
   "author": "GitHub Inc.",
   "keywords": [
     "github",
@@ -22,10 +22,6 @@
   "dependencies": {
     "hubot": ">= 2.6.0 < 3.0.0",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
-    "hubot-irc": "~0.1.24",
-    "cheerio": "~0.12.4",
-    "htmlparser": "~1.7.6",
-    "soupselect": "~0.2.0",
     "hubot-slack": "~1.5.1"
   },
   "engines": {
