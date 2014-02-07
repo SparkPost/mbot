@@ -25,6 +25,7 @@
   "lmgtfy.coffee",
   "look-of-disapproval.coffee",
   "npm.coffee",
+  "pagerduty.coffee",
   "pinkman.coffee",
   "redis-brain.coffee",
   "reload.coffee",
