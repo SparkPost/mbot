@@ -27,5 +27,5 @@ noes = [
 ]
 
 module.exports = (robot) ->
-  robot.hear /\b(nope|invalid|no)\b/i, (msg) ->
+  robot.respond /(nope|invalid|no)/i, (msg) ->
     msg.send msg.random noes
