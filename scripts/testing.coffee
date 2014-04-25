@@ -22,7 +22,7 @@ bros = [
 ]
 
 module.exports = (robot) ->
-  robot.respond /|brotest)/i, (msg) ->
+  robot.respond /brotest/i, (msg) ->
     msg.send msg.random bros
 
   robot.hear /bro, do you even test/i, (msg) ->
