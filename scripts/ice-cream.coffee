@@ -12,7 +12,8 @@ icecreams = {
   "jordan": "http://rich.io/image/1z320Z2T0b1p/ice-cream-jordan.jpg",
   "jsorensen": "http://rich.io/image/3x0y0i2q3U2B/ice-cream-jsorensen.jpg",
   "richleland": "http://rich.io/image/1j2l0K1z0u3F/ice-cream-richleland.jpg",
-  "tnoel": "http://rich.io/image/2T0t3i3Q2020/ice-cream-tnoel.jpg"
+  "tnoel": "http://rich.io/image/2T0t3i3Q2020/ice-cream-tnoel.jpg",
+  "mmathieu": "http://i.imgur.com/XqBQsUa.jpg"
 }
 
 icecream_users = Object.keys(icecreams)
