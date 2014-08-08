@@ -5,6 +5,8 @@
 #   hubot ice cream me <username> - Return a pic of <username> with ice cream!
 
 icecreams = {
+  "aknight": "http://rich.io/image/030F1z043j1r/ice-cream-aknight.jpg",
+  "amiller": "http://rich.io/image/1X191Y3J0j3z/ice-cream-amiller.jpg",
   "awinder": "http://rich.io/image/3k1s0R2x1q3x/ice-cream-awinder.jpg",
   "bobevans": "http://rich.io/image/0N2a0Y2C3F36/ice-cream-bobevans.jpg",
   "cmcfadden": "http://rich.io/image/0x1j1t3I210W/ice-cream-cmcfadden.jpg",
