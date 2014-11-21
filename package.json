@@ -29,6 +29,7 @@
     "hubot-simpsons": ">= 0.0.0",
     "hubot-reaction": ">= 0.0.0",
     "hubot-karma": ">= 0.0.0",
+    "hubot-ikr": ">= 0.0.1",
     "cheerio": "~0.12.4",
     "htmlparser": "~1.7.6",
     "soupselect": "~0.2.0",
