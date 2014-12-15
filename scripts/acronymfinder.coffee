@@ -4,6 +4,8 @@
 # Commands:
 #   hubot acronym me <query> - Prints a link to Acronym Finder for the supplied acronym.
 
+MAX_RESULTS = 10
+
 htmlp = require('htmlparser')
 soups = require('soupselect')
 
@@ -28,8 +30,16 @@ module.exports = (robot) ->
 
 getDefs = (domset) ->
   titles = soups.select(domset, 'td.result-list__body__meaning')
-  rv = "#{titles.length} meanings:\n"
+  nres = titles.length
+  rv = "#{titles.length} meanings"
+  if nres > MAX_RESULTS
+    rv = "#{rv}, first #{MAX_RESULTS}:\n"
+  else
+    rv = "#{rv}:\n"
+  i = 0
   for title in titles
+    if i++ > MAX_RESULTS
+      break
     c = title.children[0]
     if c.children?
       rv = "#{rv}#{c.children[0].data} #{c.attribs.href}\n"
