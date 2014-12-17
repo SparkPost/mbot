@@ -20,6 +20,9 @@ module.exports = (robot) ->
         hand = new htmlp.DefaultHandler (err, domset)->
           if err?
             # silent errors
+          else if res.statusCode == 301
+            if res.headers.location?
+              msg.send "http://www.acronymfinder.com#{res.headers.location}"
           else if Array.isArray(domset)
             defs = getDefs(domset)
             msg.send defs
