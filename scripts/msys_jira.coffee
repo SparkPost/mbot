@@ -22,7 +22,7 @@ module.exports = (robot) ->
 
   regex = /// (
     ?: jira\s*([A-Za-z]{1,10}-[0-9]+)\b
-     | (?:[^/]|^)((?:AD|BZ|CCHBCK|CFG|COPS|DOC|ESC|FAD|LGBCK|MA|MC|MDB|MO|MOCRBCK
+     | (?:[^/A-Z]|^)((?:AD|BZ|CCHBCK|CFG|COPS|DOC|ESC|FAD|LGBCK|MA|MC|MDB|MO|MOCRBCK
                |MOMLBCK|MR|MSC|MT|OPS|PAB|PKBMAB|PKG|PL|PM|PT|SCM|SPCP|SUP|SUPM
                |SUPSITE|TM|TPS|TR)-[0-9]{1,5})\b
   ) ///i
@@ -34,5 +34,6 @@ module.exports = (robot) ->
     if msg.match[2]
       match = msg.match[2]
 
-    msg.send "#{baseurl}/#{match}"
+    match = match.toUpperCase()
 
+    msg.send "#{baseurl}/#{match}"
