@@ -20,6 +20,10 @@ baseurl = "http://jira.int.messagesystems.com/browse"
 
 module.exports = (robot) ->
 
+  links = () -> robot.brain.data.jira_links ?= {}
+
+  link_timeout = 10 * 60 * 1000
+
   regex = /// (
     ?: jira\s*([A-Za-z]{1,10}-[0-9]+)\b
      | (?:[^/A-Z]|^)((?:AD|BZ|CCHBCK|CFG|COPS|DOC|ESC|FAD|LGBCK|MA|MC|MDB|MO|MOCRBCK
@@ -36,4 +40,14 @@ module.exports = (robot) ->
 
     match = match.toUpperCase()
 
-    msg.send "#{baseurl}/#{match}"
+    respond = true
+    last_response = links()[match]
+    time_now = new Date().getTime()
+
+    if last_response and time_now - last_response < link_timeout
+      respond = false
+    else
+      links()[match] = time_now
+
+    if respond
+      msg.send "#{baseurl}/#{match}"
