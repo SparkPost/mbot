@@ -4,7 +4,7 @@
 # Commands:
 #   hubot acronym me <query> - Prints a link to Acronym Finder for the supplied acronym.
 
-MAX_RESULTS = 10
+MAX_RESULTS = 5
 
 htmlp = require('htmlparser')
 soups = require('soupselect')
@@ -41,12 +41,14 @@ getDefs = (domset) ->
     rv = "#{rv}:\n"
   i = 0
   for title in titles
-    if i++ > MAX_RESULTS
+    if i++ >= MAX_RESULTS
       break
     c = title.children[0]
     if c.children?
-      rv = "#{rv}#{c.children[0].data} #{c.attribs.href}\n"
+      # printing the url gets too noisy with auto-expands
+      #rv = "#{rv}#{c.children[0].data} #{c.attribs.href}\n"
+      rv = "#{rv}#{i}. #{c.children[0].data}\n"
     else
-      rv = "#{rv}#{c.data}\n"
+      rv = "#{rv}#{i}. #{c.data}\n"
   rv
 
