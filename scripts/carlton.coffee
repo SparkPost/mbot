@@ -19,9 +19,7 @@ carltons = [
   "http://gifsoup.com/webroot/animatedgifs/987761_o.gif",
   "http://s2.favim.com/orig/28/carlton-banks-dance-Favim.com-239179.gif",
   "http://gifsoup.com/webroot/animatedgifs/131815_o.gif",
-  "http://rich.io/V2N3/hand-jive2.gif",
-  "http://eventstreams.com/es/rmb/ryan.gif",
-  "http://eventstreams.com/es/rmb/dancing_julie.gif"
+  "http://rich.io/V2N3/hand-jive2.gif"
 ]
 
 module.exports = (robot) ->
