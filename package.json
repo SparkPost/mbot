@@ -26,6 +26,7 @@
     "hubot": ">= 2.6.0 < 3.0.0",
     "hubot-appearin": ">= 1.0.0",
     "hubot-bofh": "git://github.com/danriti/hubot-bofh.git#master",
+    "hubot-cah": "^0.1.0",
     "hubot-devopsreactions": ">= 0.0.0",
     "hubot-irc": "~0.1.24",
     "hubot-karma": ">= 0.0.0",
