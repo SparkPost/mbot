@@ -28,4 +28,4 @@ module.exports = (robot) ->
       match = msg.match[2]
       match = match.replace /\s+/mg, ''
       out = new Buffer(match, 'base64').toString('ascii')
-      msg.send out
+      msg.send '```' + out + '```'
