@@ -29,7 +29,7 @@ module.exports = (robot) ->
       match = match.replace /\s+/mg, ''
       out = new Buffer(match, 'base64').toString('ascii')
       try 
-        out = JSON.stringify(JSON.parse(out), NULL, 2)
+        out = JSON.stringify(JSON.parse(out), null, 2)
       catch ex
         "do nothing"
         
