@@ -16,7 +16,7 @@
 # Author:
 #   mbainter
 
-baseurl = "http://jira.int.messagesystems.com/browse"
+baseurl = "https://jira.int.messagesystems.com/browse"
 
 module.exports = (robot) ->
 
@@ -26,8 +26,8 @@ module.exports = (robot) ->
 
   regex = /// (
     ?: jira\s*([A-Za-z]{1,10}-[0-9]+)\b
-     | (?:[^/A-Z]|^)((?:AD|BZ|CCHBCK|CFG|COPS|DOC|ESC|FAD|LGBCK|MA|MC|MDB|MO|MOCRBCK
-               |MOMLBCK|MR|MSC|MT|OPS|PAB|PKBMAB|PKG|PL|PM|PSI|PT|SCM|SPCP|SUP|SUPM
+     | (?:[^/A-Z]|^)((?:AD|BZ|CCHBCK|CFG|COPS|DOC|ESC|ESCSP|FAD|LGBCK|MA|MC|MDB|MO|MOCRBCK
+               |MOMLBCK|MR|MSC|MT|OPS|PAB|PGM|PKBMAB|PKG|PL|PM|PSI|PT|SCM|SPCP|SRE|SUP|SUPM
                |SUPSITE|TM|TPS|TR)-[0-9]{1,5})\b
   ) ///i
 
