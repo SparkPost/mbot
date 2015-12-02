@@ -20,7 +20,7 @@
 module.exports = (robot) ->
 
 
-  regex = /decode me =\?utf-8\?B\?([a-zA-Z0-9=\+\/]+)==?=/m
+  regex = /decode me =\?utf-8\?B\?([a-zA-Z0-9=\+\/]+)==\?=/m
 
   robot.hear regex, (msg) ->
 
