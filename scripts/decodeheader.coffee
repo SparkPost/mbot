@@ -19,17 +19,13 @@
 
 module.exports = (robot) ->
 
-
-  regex = /decode me =\?utf-8\?B\?([a-zA-Z0-9\+\/]+)==\?=/m
+  regex = /decode\s*me\s*=\?utf-8\?B\?([a-zA-Z0-9\+\/]+)\?=/m
 
   robot.hear regex, (msg) ->
 
     if msg.match[1]
       match = msg.match[1]
-      out = 'invalid'
       try
-        out = new Buffer(match, 'base64').toString('utf8')
+        msg.send new Buffer(match, 'base64').toString('utf8')
       catch ex
-        "do nothing"
-        
-      msg.send '```' + out + '```'
+        msg.send 'Unable to decode'
