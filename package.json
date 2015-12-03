@@ -34,6 +34,7 @@
     "hubot-simpsons": ">= 0.0.0",
     "hubot-slack": "^3.3.0",
     "hubot-cinco-facetime-party-snoozer": "^1.1.0",
+    "mimelib": ">= 0.0.0",
     "moment": "x",
     "scraper": "0.0.9",
     "soupselect": "~0.2.0",
