@@ -1,5 +1,5 @@
 # Description:
-#   Decode UTF8 header
+#   Decode RFC2047 header
 #
 # Dependencies:
 #   None
@@ -16,25 +16,12 @@
 # Author:
 #   George
 
-mimelib = require('mimelib')
+rfc2047 = require('rfc2047')
 
 module.exports = (robot) ->
 
-  b_regex = /decode\s*me\s*=\?utf-8\?B\?([a-zA-Z0-9\+\/]+={0,2})\?=/
-  q_regex = /decode\s*me\s*=\?utf-8\?Q\?([ -~]+)\?=/
+  regex = /decode\s*me\s*(.*)/
 
-  robot.hear b_regex, (msg) ->
+  robot.hear regex, (msg) ->
     if msg.match[1]
-      match = msg.match[1]
-      try
-        msg.send '```' + new Buffer(match, 'base64').toString('utf8') + '```'
-      catch ex
-        msg.send 'Unable to decode'
-
-  robot.hear q_regex, (msg) ->
-    if msg.match[1]
-      match = msg.match[1]
-      try
-        msg.send '```' + mimelib.decodeQuotedPrintable(match) + '```'
-      catch ex
-        msg.send 'Unable to decode'
+      msg.send '```' + rfc2047.decode(msg.match[1]) + '```'

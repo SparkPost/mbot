@@ -36,6 +36,7 @@
     "hubot-cinco-facetime-party-snoozer": "^1.1.0",
     "mimelib": ">= 0.0.0",
     "moment": "x",
+    "rfc2047": ">= 2.0.0",
     "scraper": "0.0.9",
     "soupselect": "~0.2.0",
     "textspark": "0.0.x",
