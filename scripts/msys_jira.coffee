@@ -28,7 +28,7 @@ module.exports = (robot) ->
     ?: jira\s*([A-Za-z]{1,10}-[0-9]+)\b
      | (?:[^/A-Z]|^)((?:AD|BZ|CCHBCK|CFG|CM|COPS|DOC|DT|ESC|ESCSP|FAD|LGBCK|MA|MC|MDB|MO|MOCRBCK
                |MOMLBCK|MR|MSC|MT|OPS|PAB|PGM|PKBMAB|PKG|PL|PM|PSI|PT|SCM|SPCP|SRE|SUP|SUPM
-               |SUPSITE|TM|TPS|TR)-[0-9]{1,5})\b
+               |SUPSITE|TM|TPS|TR)-[1-9][0-9]{1,4})\b
   ) ///i
 
   robot.hear regex, (msg) ->
