@@ -24,7 +24,8 @@ noes = [
   "http://rich.io/V26K/675646-354knf.jpg",
   "http://rich.io/V1ZM/67610cd7d50aef26c374303c76365479644a5674f7ede7cfdb2ac2011c6a49d9.jpg",
   "http://rich.io/image/331Z1n0b0D1q",
-  "http://rich.io/V1Ey/nope-exe_o_675265.jpg"
+  "http://rich.io/V1Ey/nope-exe_o_675265.jpg",
+  "https://media1.giphy.com/media/149t2dI5M5nzvq/200.gif"
 ]
 
 module.exports = (robot) ->
