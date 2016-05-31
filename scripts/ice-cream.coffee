@@ -6,6 +6,7 @@
 
 icecreams = {
   "aknight": "http://rich.io/image/030F1z043j1r/ice-cream-aknight.jpg",
+  "agoldman": "http://rich.io/1r253v0C2w34/avi-goldman.jpg",
   "amiller": "http://rich.io/image/1X191Y3J0j3z/ice-cream-amiller.jpg",
   "awinder": "http://rich.io/image/3k1s0R2x1q3x/ice-cream-awinder.jpg",
   "bobevans": "http://rich.io/image/0N2a0Y2C3F36/ice-cream-bobevans.jpg",
