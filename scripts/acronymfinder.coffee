@@ -11,7 +11,7 @@ soups = require('soupselect')
 
 module.exports = (robot) ->
   robot.respond /(ac(?:ro(?:nym)?)?)\s*(me|link)? (\w+)/i, (msg) ->
-    uri = "http://www.acronymfinder.com/#{msg.match[3]}.html"
+    uri = "https://www.acronymfinder.com/#{msg.match[3]}.html"
     msg.send uri
     if msg.match[2] == 'link'
       return
@@ -21,8 +21,8 @@ module.exports = (robot) ->
           if err?
             # silent errors
           else if res.statusCode == 301
-            if res.headers.location?
-              msg.send "http://www.acronymfinder.com#{res.headers.location}"
+            if res.headers.location && res.headers.location != uri?
+              msg.send "301: http://www.acronymfinder.com#{res.headers.location}"
           else if Array.isArray(domset)
             defs = getDefs(domset)
             msg.send defs
