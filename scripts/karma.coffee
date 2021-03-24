@@ -10,7 +10,7 @@
 
 module.exports = (robot) ->
 
-  robot.hear /^@?(.*?)(\+\+|--)\s*$/, (response) ->
+  robot.hear /^@?(.*?)(\+\+|--).*?$/, (response) ->
     thisUser = response.message.user
     targetToken = response.match[1].replace(/.*@/, '').trim()
     return if not targetToken
