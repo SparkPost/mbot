@@ -15,12 +15,14 @@ module.exports = (robot) ->
 
     if (response.match[0].indexOf('@') === -1) { # Original message does not have @
       # be strict and dont allow spaces when there wasnt an @ sign
-      return if response.match[1].trim().split(' ').length > 1
-      targetToken = response.match[1].trim()
+      possibleToken = response.match[1].trim()
+      return if possibleToken.split(' ').length > 1
+      targetToken = possibleToken
     } else { # Original message has @
       # be a little less strict and dont allow more than one space when there was an @ sign
-      return if response.match[1].replace(/.*@/, '').trim().split(' ').length > 2
-      targetToken = response.match[1].replace(/.*@/, '').trim()
+      possibleToken = response.match[1].replace(/.*@/, '').trim()
+      return if possibleToken.split(' ').length > 2
+      targetToken = possibleToken
     }
     return if not targetToken
 
