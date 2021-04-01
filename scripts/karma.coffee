@@ -12,8 +12,18 @@ module.exports = (robot) ->
 
   robot.hear /^@?(.*?)(\+\+|--).*?$/, (response) ->
     thisUser = response.message.user
-    targetToken = response.match[1].replace(/.*@/, '').trim()
+
+    if (response.match[0].indexOf('@') === -1) { # Original message does not have @
+      # be strict and dont allow spaces when there wasnt an @ sign
+      return if response.match[1].trim().split(' ').length > 1
+      targetToken = response.match[1].trim()
+    } else { # Original message has @
+      # be a little less strict and dont allow more than one space when there was an @ sign
+      return if response.match[1].replace(/.*@/, '').trim().split(' ').length > 2
+      targetToken = response.match[1].replace(/.*@/, '').trim()
+    }
     return if not targetToken
+
     targetUser = userForToken targetToken, response
     return if not targetUser
     return response.send "Hey, you can't give yourself karma!" if thisUser is targetUser
