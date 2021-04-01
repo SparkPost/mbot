@@ -18,14 +18,10 @@ module.exports = (robot) ->
     doKarma(targetToken, response)
 
   # this regex is for matching persons, but only at the beginning of a line
-  # and it will ignore the user karma if it's got more than one space.
   robot.hear /^([\w\s]+?)(\+\+|--).*$/, (response) ->
     thisUser = response.message.user
     targetToken = response.match[1].trim()
     return if not targetToken
-    # if there's more than just two words in that target token, give up.
-    # this means it'll only match "david kowis" not "here's the thing --"
-    return if targetToken.split(" ").length > 2
     doKarma(targetToken, response)
 
 
@@ -46,6 +42,10 @@ module.exports = (robot) ->
     response.send msg
 
   doKarma = (targetToken, response) ->
+    # if there's more than just two words in that target token, give up.
+    # this means it'll only match "david kowis" not "here's the thing --"
+    # regardless of if @ was used or not
+    return if targetToken.split(" ").length > 2
     targetUser = userForToken targetToken, response
     return if not targetUser
     return response.send "Hey, you can't give yourself karma!" if thisUser is targetUser
