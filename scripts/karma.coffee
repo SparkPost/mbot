@@ -10,16 +10,24 @@
 
 module.exports = (robot) ->
 
+  # This regex is for matching an `@person` anywhere in the line
   robot.hear /@(.*?)(\+\+|--).*?$/, (response) ->
     thisUser = response.message.user
     targetToken = response.match[1].replace(/.*@/, '').trim()
     return if not targetToken
-    targetUser = userForToken targetToken, response
-    return if not targetUser
-    return response.send "Hey, you can't give yourself karma!" if thisUser is targetUser
-    op = response.match[2]
-    targetUser.karma += if op is "++" then 1 else -1
-    response.send "#{targetUser.name} now has #{targetUser.karma} karma."
+    doKarma(targetToken, response)
+
+  # this regex is for matching persons, but only at the beginning of a line
+  # and it will ignore the user karma if it's got more than one space.
+  robot.hear /^([\w\s]+?)(\+\+|--).*$/, (response) ->
+    thisUser = response.message.user
+    targetToken = response.match[1].trim()
+    return if not targetToken
+    # if there's more than just two words in that target token, give up.
+    # this means it'll only match "david kowis" not "here's the thing --"
+    return if targetToken.split(" ").length > 2
+    doKarma(targetToken, response)
+
 
   robot.hear /^karma(?:\s+@?(.*))?$/, (response) ->
     targetToken = response.match[1]?.trim()
@@ -36,6 +44,14 @@ module.exports = (robot) ->
       return if not targetUser
       msg = "#{targetUser.name} has #{targetUser.karma} karma."
     response.send msg
+
+  doKarma = (targetToken, response) ->
+    targetUser = userForToken targetToken, response
+    return if not targetUser
+    return response.send "Hey, you can't give yourself karma!" if thisUser is targetUser
+    op = response.match[2]
+    targetUser.karma += if op is "++" then 1 else -1
+    response.send "#{targetUser.name} now has #{targetUser.karma} karma."
 
   userForToken = (token, response) ->
     users = usersForToken token
