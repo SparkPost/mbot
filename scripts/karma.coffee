@@ -28,6 +28,9 @@ module.exports = (robot) ->
     targetToken = response.match[1].replace(/.*@/, '').trim()
     return if not targetToken
     targetUser = userForToken targetToken, response
+    
+    return response.send "#{targetUser}"
+
     return if not targetUser
     return response.send "Hey, you can't give yourself karma!" if thisUser is targetUser
     op = response.match[2]
