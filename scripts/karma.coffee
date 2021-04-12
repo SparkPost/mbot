@@ -13,7 +13,7 @@ module.exports = (robot) ->
   # Match no @ sign only if it's the start of the message.
   robot.hear /^([A-z.]+\s?)(\+\+|--)$/, (response) ->
     thisUser = response.message.user
-    return response.send "Match no @ signs: #{JSON.stringify(response.match)}" # debug
+    # return response.send "Match no @ signs: #{JSON.stringify(response.match)}" # debug
     targetToken = response.match[1].trim()
     return if not targetToken
     targetUser = userForToken targetToken, response
@@ -26,8 +26,9 @@ module.exports = (robot) ->
   # Match @ signs with possible space in name anywhere in a string.
   robot.hear /^.*?@(.*?)(\+\+|--).*?$/, (response) ->
     thisUser = response.message.user
-    return response.send "Match @ signs: #{JSON.stringify(response.match)}" # debug
-    targetToken = response.match[1].replace(/.*@/, '').trim()
+    # return response.send "Match @ signs: #{JSON.stringify(response.match)}" # debug
+    targetToken = response.match[1].trim()
+    return if targetToken.split(' ').length > 1
     # return response.send "#{JSON.stringify(targetToken)}" # debug
     return if not targetToken
     targetUser = userForToken targetToken, response
