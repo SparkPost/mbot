@@ -25,8 +25,9 @@ module.exports = (robot) ->
   # Match @ signs with possible space in name anywhere in a string.
   robot.hear /@([A-z]+\s?[A-z]+\s?)(\+\+|--)/, (response) ->
     thisUser = response.message.user
+    return response.send "#{JSON.stringify(response.match)}" # debug
     targetToken = response.match[1].replace(/.*@/, '').trim()
-    return response.send "#{JSON.stringify(targetToken)}" # debug
+    # return response.send "#{JSON.stringify(targetToken)}" # debug
     return if not targetToken
     targetUser = userForToken targetToken, response
     # return response.send "#{JSON.stringify(targetUser)}" # debug
