@@ -2,4 +2,4 @@
 .env
 .hubot_history
 node_modules
-
+.node-version
