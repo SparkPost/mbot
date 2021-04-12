@@ -26,9 +26,10 @@ module.exports = (robot) ->
   robot.hear /@([A-z]+\s?[A-z]+\s?)(\+\+|--)/, (response) ->
     thisUser = response.message.user
     targetToken = response.match[1].replace(/.*@/, '').trim()
+    return response.send "#{JSON.stringify(targetToken)}" # debug
     return if not targetToken
     targetUser = userForToken targetToken, response
-    return response.send "#{JSON.stringify(targetUser)}" # debug
+    # return response.send "#{JSON.stringify(targetUser)}" # debug
     return if not targetUser
     return response.send "Hey, you can't give yourself karma!" if thisUser is targetUser
     op = response.match[2]
